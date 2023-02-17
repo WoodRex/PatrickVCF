@@ -5,7 +5,7 @@ import yahooFinance from "yahoo-finance2";
 // Summary detail missing SMA 150
 const queryOptions = { modules: ['price', 'summaryDetail'] };
 
-getFinvizScreen('https://finviz.com/screener.ashx?v=111&f=cap_mid,sh_price_o10,sh_price_u80,ta_perf_13w30o,ta_perf_26w30o')
+getFinvizScreen('https://finviz.com/screener.ashx?v=111&f=cap_mid,sh_price_o10,sh_price_u80,ta_perf_13w30o,ta_perf_26w30o,sh_avgvol_o500')
 .then((res) => {
   Promise.all(res.map(symbol => yahooFinance.quoteSummary(symbol, queryOptions)))
   .then((data) => {
